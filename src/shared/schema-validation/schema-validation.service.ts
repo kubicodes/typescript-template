@@ -5,6 +5,8 @@ export interface SchemaValidationService {
 }
 
 export class AjvSchemaValidationService<T> implements SchemaValidationService {
+    // Singleton instance of Ajv, as instanciation is to costly and not needed multiple times as
+    // the compile method is called anyway with the current schema
     private ajvInstance: Ajv;
 
     public getValidationFunction(schema: Schema): ValidateFunction {
