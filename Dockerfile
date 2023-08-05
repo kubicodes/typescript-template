@@ -1,4 +1,4 @@
-FROM node:16-alpine as builder
+FROM node:18.17.0-bullseye-slim as builder
 
 WORKDIR /usr/src/app
 
@@ -12,7 +12,7 @@ COPY . .
 RUN npm run build
 
 # Production Container
-FROM node:16-alpine as production
+FROM node:18.17.0-bullseye-slim as production
 
 ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
